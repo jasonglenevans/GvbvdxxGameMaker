@@ -93,6 +93,6 @@ Blockly.JavaScript['group'] = function(block) {
   var text_name = block.getFieldValue('NAME');
   var statements_scripts = Blockly.JavaScript.statementToCode(block, 'scripts');
   // TODO: Assemble JavaScript into code variable.
-  var code = '//------------' + text_name + '------------\n' + statements_scripts + '\n//---------------------------------------;\n';
+  var code = '//------------' + text_name + '------------\n' + statements_scripts + '\n//---------------------------------------\n';
   return code;
 };
