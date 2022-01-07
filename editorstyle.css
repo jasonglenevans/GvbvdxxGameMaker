@@ -1,0 +1,14 @@
+/*Tab Outline/Text Color #838383 Tab Fill Color #b1b1b1*/
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+html {
+  background-color:#b8b8b8; /*BG Color*/
+}
+.old {
+  background-color:#e0e0e0;
+}
+.tab {
+    display: flex;
+    display: inline-block;
+}

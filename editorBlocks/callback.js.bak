@@ -1,0 +1,29 @@
+Blockly.defineBlocksWithJsonArray([
+
+{
+  "type": "function__input",
+  "message0": "Script %1 %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "fnc script"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 300,
+  "tooltip": "Usage:This is used for a variable so you can call it at any time, so there you can use it for callbacks",
+  "helpUrl": ""
+}
+
+]);
+Blockly.JavaScript['function__input'] = function(block) {
+  var statements_fnc_script = Blockly.JavaScript.statementToCode(block, 'fnc script');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'function () {\n' + statements_fnc_script + '\n};' ;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

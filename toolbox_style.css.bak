@@ -1,0 +1,14 @@
+.blocklyTreeLabel {
+  color: gray;
+}
+.blocklyToolboxContents {
+  padding: .5em;
+}
+.blocklyTreeRow {
+  padding: 3px;
+  margin-bottom: .5em;
+  border-radius: 2px;
+}
+Logic_category {
+    "colour": "210"
+  }

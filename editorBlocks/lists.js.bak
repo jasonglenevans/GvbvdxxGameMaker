@@ -1,0 +1,38 @@
+Blockly.defineBlocksWithJsonArray([
+
+{
+  "type": "lists_get_item_from_number",
+  "message0": "%1 Get Item Number %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "listvar",
+      "variable": "list"
+    },
+    {
+      "type": "input_value",
+      "name": "number",
+      "check": "Number"
+    }
+  ],
+  "output": [
+    "Boolean",
+    "String",
+    "Number"
+  ],
+  "colour": 260,
+  "tooltip": "Gets the item number in a list",
+  "helpUrl": ""
+}
+
+
+
+]);
+Blockly.JavaScript['lists_get_item_from_number'] = function(block) {
+  var variable_listvar = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('listvar'), Blockly.Variables.NAME_TYPE);
+  var value_number = Blockly.JavaScript.valueToCode(block, 'number', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = variable_listvar + '[' + value_number + ']';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="editorstyle.css">
+<html ondragstart="return false" onselectstart="return false" style="font-family:Arial;">
+<head style="background-color:#636363;">
+  <title>Loading... Gvbvdxx's Game Editor</title>
+</head>
+<body>
+    
+    <div style="background-color:#636363; font-family:Arial; height:42px;">
+    <img style="" src="logo.svg" width="159" height="42" class="left"></img>
+    <a href="index.html" style="font-size:40px; color:#ffff; text-align: center;">Home</a>
+    <a style="font-size:40px; color:#ffff; text-align:center;">Editor</a>
+    </div>
+    
+    <hr>
+    <div id="tabs" ondragstart="return false" onselectstart="return false" style="height:50.2px;">
+    <img height="50" id="TABEditor" src="editortabs/editor.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" class="tab" onclick="tabswitch('editor');"></img><img height="50" id="TABGame" src="editortabs/game.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)'" class="tab" onclick="tabswitch('game');"></img><img height="50" id="TABSource" src="editortabs/source.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)'" class="tab" onclick="tabswitch('source');"></img>
+    </div>
+    <hr>
+  <center style="background-color:grey; width:100%; height:calc(100vh - 140px); postion:relative;">
+    <div id="game" style="display:none;">
+      <p>Title:</p>
+      <input type="text" value="Untitled Game" oninput="updatetitle();" onchange="updatetitle();" style="width:350px; height:30px; border:0; border-radius:5px;" id="gamename"></input>
+      <p>Instructions:</p>
+      <textarea style="width:400px; height:100px; border:0; border-radius:5px;" id="instructions"></textarea>
+      
+    </div>
+    
+    
+    <div id="editor" style="display:none;">
+      <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+      <script src="blockly_compressed.js"></script>
+      <script src="blocks_compressed.js"></script>
+      <script src="javascript_compressed.js"></script>
+      <script src="msg/js/en.js"></script>
+      <link rel="stylesheet" href="toolbox_style.css">
+      
+      <div id="blocklyArea" style="width:100%; height:calc(100vh - 140px); postion:relative;"><div id="blocklyDiv" style="position: absolute; left:0;"></div></div>
+    
+    </div>
+    
+    
+    <div id="source" style="display:none;">
+      <textarea id="Code" disabled style="resize:none; width:70%; height:calc(100vh - 300px); postion:relative; border:0; border-radius:5px; background-color:#ffff;"></textarea>
+    </div>
+  </center>
+  
+  
+  
+</body>
+</html>
+<script src="audio.js"></script>
+<script src="editortabs.js"></script>
+<script src="preview.js"></script>
+
+
+
+<xml id="toolbox" style="display: none" style="">
+  <category name="Basic Blocks" colour="#51008f" style="">
+    <category name="Controls" colour="#3a9600">
+      <block type="controls_repeat_ext"></block>
+      <block type="controls_repeat"></block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for"></block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category name="Conditions" colour="#0077ff">
+      <block type="controls_if"></block>
+      <block type="controls_ifelse"></block>
+    </category>
+    <category name="Logic" colour="#3c40a3">
+      <block type="logic_boolean"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+    </category>
+    <category name="Math" colour="#047874">
+      <block type="math_number"></block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_constant"></block>
+      <block type="math_number_property"></block>
+      <block type="math_change"></block>
+      <block type="math_round"></block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain"></block>
+      <block type="math_random_int"></block>
+      <block type="math_random_float"></block>
+      <block type="math_atan2"></block>
+    </category>
+  </category>
+  <category name="Game Controller" colour="#b34317">
+    <category name="elements">
+      <block type="elements_create_element"></block>
+    </category>
+  </category>
+</xml>
+
+
+
+
+<script>
+  document.getElementById("editor").style.display = "block";
+  var blocklyArea = document.getElementById('blocklyArea');
+  var blocklyDiv = document.getElementById('blocklyDiv');
+  
+  
+  
+  
+  let workspace = Blockly.inject(blocklyDiv,
+      {toolbox: document.getElementById('toolbox'),
+      media:"media/",
+      trashcan: true,
+       grid:
+          {spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: false},
+           zoom:
+         {controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          pinch: true},
+      move:{
+      scrollbars: {
+      horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: false}
+      });
+      
+      
+      
+      
+      
+      
+      
+  var onresize = function(e) {
+    // Compute the absolute coordinates and dimensions of blocklyArea.
+    document.getElementById("source").style.display = "none";
+    document.getElementById("game").style.display = "none";
+    document.getElementById("editor").style.display = "block";
+    
+    if (document.getElementById("editor").style.display == "block") {
+    var element = blocklyArea;
+    var x = 0;
+    var y = 0;
+    do {
+      x += element.offsetLeft;
+      y += element.offsetTop;
+      element = element.offsetParent;
+    } while (element);
+    // Position blocklyDiv over blocklyArea.
+    blocklyDiv.style.left = x + 'px';
+    blocklyDiv.style.top = y + 'px';
+    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    Blockly.svgResize(workspace);
+    }
+  };
+  window.addEventListener('resize', onresize, false);
+  onresize();
+  Blockly.svgResize(workspace);
+  function myUpdateFunction(event) {
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    document.getElementById('Code').innerHTML = code;
+  }
+  workspace.addChangeListener(myUpdateFunction);
+</script>
+<script>
+  function updatetitle() {
+    document.title = document.getElementById("gamename").value + " | Editor | Gvbvdxx's Game Maker";
+  }
+  updatetitle();
+</script>
+<script src="editorBlocks/elements.js"></script>

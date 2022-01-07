@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!--To Get Save Data Use localStorage.getItem('saveDAT:The Games Name Goes Here'); -->
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="editorstyle.css">
+<html ondragstart="return false" onselectstart="return false" style="font-family:Arial; cursor:wait;" id="html">
+<head style="background-color:#636363;">
+  <title>Loading... Gvbvdxx's Game Editor</title>
+</head>
+<body>
+    
+    <div style="background-color:#636363; font-family:Arial; height:42px;">
+    <img style="" src="logo.svg" width="159" height="42" class="left"></img>
+    <a href="index.html" style="font-size:40px; color:#ffff; text-align: center;">Home</a>
+    <a style="font-size:40px; color:#ffff; text-align:center;">Editor</a>
+    </div>
+    
+    <hr>
+    <div id="tabs" ondragstart="return false" onselectstart="return false" style="height:50.2px; background-color:gray; display:block;">
+        <img height="50" id="TABEditor" src="editortabs/editor.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" class="tab" onclick="tabswitch('editor');"></img><img height="50" id="TABGame" src="editortabs/game.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)'" class="tab" onclick="tabswitch('game');"></img><img height="50" id="TABSource" src="editortabs/source.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)'" class="tab" onclick="tabswitch('source');"></img>
+	    <img height="50" id="PlayPauseButton" src="preview/play.png" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" class="previewButton" onclick="pressedplaypause()" name="play"></img>
+		<img height="50" src="saveIcon/Save.png" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" onclick="save();"></img>
+		<img height="50" src="saveIcon/Load.png" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" onclick="load();"></img>
+	    <img height="50" src="saveIcon/New.png" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" onclick="newgame();"></img>
+    </div>
+    <hr>
+  <center style="background-color:grey; width:100%; height:calc(100vh - 140px); postion:relative;">
+    <div id="game" style="display:none;">
+      <p>Title:</p>
+      <input type="text" value="Untitled Game" oninput="updatetitle();" onchange="updatetitle();" style="width:350px; height:30px; border:0; border-radius:5px;" id="gamename"></input>
+      
+    </div>
+    
+    
+    <div id="editor" style="display:none;">
+      <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+      <script src="blockly_compressed.js"></script>
+      <script src="blocks_compressed.js"></script>
+      <script src="javascript_compressed.js"></script>
+      <script src="msg/js/en.js"></script>
+      <link rel="stylesheet" href="toolbox_style.css">
+      
+      <div id="blocklyArea" style="width:100%; height:calc(100vh - 140px); postion:relative;"><div id="blocklyDiv" style="position: absolute; left:0;"></div></div>
+    
+    </div>
+    
+    
+    <div id="source" style="display:none;">
+	    <p>Game Scripts:</p>
+        <textarea id="Code" disabled style="resize:none; width:100%; height:calc(100vh - 460px); postion:relative; border:0; border-radius:5px; background-color:#ffff; background-color:#000000; color:#ffffff;"></textarea>
+		<p>Log:</p>
+		<textarea id="INJECTSCRIPTLog" disabled style="resize:none; width:100%; height:calc(100vh - 460px); postion:relative; border:0; border-radius:5px; background-color:#000000; color:#ffffff;"></textarea>
+	</div>
+  </center>
+  
+  
+  
+</body>
+</html>
+<script src="audio.js"></script>
+<script src="editortabs.js"></script>
+<script src="preview.js"></script>
+<xml id="defaltGame" hidden>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="o[w}WsgBKuFy.z]%R=PD">Key ID</variable><variable id="OMP`Ml*U)2qaa%qV:Kj6">Player</variable><variable id="yq1rjG$[BQsyi.:#K?45">floor</variable><variable id="ppiw.UHw{GSSVLc[`@fv">Player X</variable><variable id=")Y$_$+XE;f%YK,yp4[xH">Player X Velocity</variable><variable id="(0h|$?1(TuymL@V=4#[s">Player Y</variable><variable id="Pt!:)ls;QXI3P%6SFyd(">Player Y Velocity</variable><variable id="*y`v@b(Aut`%7zsxv+{r">Player Is On Floor</variable><variable id="xEzdj*xb{`XoX{kgFLcD">Air Time</variable></variables><block type="game_keydetector" id="-R*x1z5JtX4jyzQp-MU4" x="0" y="0"><field name="var" id="o[w}WsgBKuFy.z]%R=PD">Key ID</field><comment pinned="true" h="80" w="160">ALLWAYS Put This At The Top.</comment></block><block type="variables_set" id="w-iP9U$C~/yT9Da/)B*S" x="0" y="50"><field name="VAR" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><value name="VALUE"><block type="elements_create_element" id="{STfp3~Cc0x?Inm6f/2D"><field name="elementID">DIV</field></block></value><next><block type="variables_set" id="n9M(@H^es|(ugrEP$a=Y"><field name="VAR" id="yq1rjG$[BQsyi.:#K?45">floor</field><value name="VALUE"><block type="elements_create_element" id="6pc-m.qoU3mi_oO~@i$r"><field name="elementID">DIV</field></block></value><next><block type="variables_set" id=".~:]H9Olo)2EO34/liP_"><field name="VAR" id="ppiw.UHw{GSSVLc[`@fv">Player X</field><value name="VALUE"><block type="math_number" id="akmgrlI^kF/u~ER4$lY;"><field name="NUM">0</field></block></value><next><block type="variables_set" id="cN+OedT{(W=AMCX,{_!2"><field name="VAR" id="(0h|$?1(TuymL@V=4#[s">Player Y</field><value name="VALUE"><block type="math_number" id="%X!Qo.z*J)vz}iog#RLO"><field name="NUM">0</field></block></value><next><block type="variables_set" id="TW-m6-P:s_js0Yx#V9|b"><field name="VAR" id=")Y$_$+XE;f%YK,yp4[xH">Player X Velocity</field><value name="VALUE"><block type="math_number" id="F.Fwf/`D6xF;2MCgv!jE"><field name="NUM">0</field></block></value><next><block type="variables_set" id="+[B6%)3ghmB_hQBAeUya"><field name="VAR" id="Pt!:)ls;QXI3P%6SFyd(">Player Y Velocity</field><value name="VALUE"><block type="math_number" id="d,|_QoSB+`_Q+rv_dO!~"><field name="NUM">-6</field></block></value><next><block type="variables_set" id="FIfB`csYGFD:BL{tU=~#"><field name="VAR" id="*y`v@b(Aut`%7zsxv+{r">Player Is On Floor</field><value name="VALUE"><block type="logic_boolean" id="G3G{0ra=FwJcgv8,0w[v"><field name="BOOL">FALSE</field></block></value><next><block type="elements_bg_color" id="edI(~XBg[^5P}nh0K4DN"><value name="bg_color"><block type="colour_picker" id="M^h`5aV~T$C.JeN8#Rpo"><field name="COLOUR">#33ccff</field></block></value><next><block type="elements_set_setting" id="!.h%;~b9;@L]k68,$ZS3"><field name="element" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><field name="NAME">style.backgroundColor</field><value name="setting_val"><block type="colour_picker" id="2~mI^1um$LTkP9PsMBXF"><field name="COLOUR">#ffff33</field></block></value><next><block type="elements_set_setting" id="upH*Y1@L@xH_T%Vdr(_6"><field name="element" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><field name="NAME">style.width</field><value name="setting_val"><block type="math_number" id="]=s8NlS@KH7TCNlAQ-wP"><field name="NUM">32</field></block></value><next><block type="elements_set_setting" id="CKR#s?Tk?A(ZmY)Q(jnX"><field name="element" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><field name="NAME">style.height</field><value name="setting_val"><block type="math_number" id="$%p.}uOPG;B#U=kL+)*C"><field name="NUM">32</field></block></value><next><block type="elements_set_setting" id="8D6orX]rq;^xXp%CszAg"><field name="element" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><field name="NAME">style.position</field><value name="setting_val"><block type="css_positioning" id="u$F:lYxc0?Pv^r^@2Rw="><field name="Positioning type">fixed</field></block></value><next><block type="elements_set_setting" id="|]S/UrZKImyckhu4Y{W,"><field name="element" id="yq1rjG$[BQsyi.:#K?45">floor</field><field name="NAME">style.backgroundColor</field><value name="setting_val"><block type="colour_picker" id="(]r7D=ww^ix`#uUzg~BT"><field name="COLOUR">#33cc00</field></block></value><next><block type="elements_set_setting" id="6|t?XnJbz=F}24fk-T!z"><field name="element" id="yq1rjG$[BQsyi.:#K?45">floor</field><field name="NAME">style.position</field><value name="setting_val"><block type="css_positioning" id="y]!l2PHSP^a;:Owd]EJ~"><field name="Positioning type">fixed</field></block></value><next><block type="elements_put_screen" id="P.w#Jl0jdl5!Y2d=-R@E"><field name="Element" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><next><block type="elements_put_screen" id="p*]j|RKd?Eus.ZqV_|1["><field name="Element" id="yq1rjG$[BQsyi.:#K?45">floor</field></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block><block type="game_on_tick" id="{z=M.N2(MTnmtCD_#_R_" x="452" y="90"><comment pinned="true" h="80" w="160">Main Controls.</comment><statement name="code"><block type="controls_if" id="F~sa]}GsDVhT--+#3]YH"><value name="IF0"><block type="game_key_pressed" id="9ywH3b.b#TX20.B1%`bV"><field name="keycode">37</field><field name="keyvar" id="o[w}WsgBKuFy.z]%R=PD">Key ID</field></block></value><statement name="DO0"><block type="math_change" id="j#K`QZUI?ep6vR2YQl^5"><field name="VAR" id=")Y$_$+XE;f%YK,yp4[xH">Player X Velocity</field><value name="DELTA"><shadow type="math_number" id="]JQ|4I+E13Y-LBnTLAMk"><field name="NUM">1</field></shadow><block type="math_number" id="xl@N*nj:mFmzX0nWSS[x"><field name="NUM">-1</field></block></value></block></statement><next><block type="controls_if" id="%DSEZh}aj]Fe,83bUid8"><value name="IF0"><block type="game_key_pressed" id="SuQMbl|aL~=b`t*TC3A7"><field name="keycode">39</field><field name="keyvar" id="o[w}WsgBKuFy.z]%R=PD">Key ID</field></block></value><statement name="DO0"><block type="math_change" id="z(EGbG{(9u6O%sNI8gfr"><field name="VAR" id=")Y$_$+XE;f%YK,yp4[xH">Player X Velocity</field><value name="DELTA"><shadow type="math_number"><field name="NUM">1</field></shadow><block type="math_number" id="QOp9rE0bEsUDe3S[c1Lh"><field name="NUM">1</field></block></value></block></statement><next><block type="controls_if" id="Ryb-mG7hF0(PEYNNWHy,"><value name="IF0"><block type="logic_operation" id="Kt{6-;k7FCAP@1M?t[sF"><field name="OP">AND</field><value name="A"><block type="logic_operation" id="I9SIG)$sdiZE57*79kY-"><field name="OP">OR</field><value name="A"><block type="game_key_pressed" id="`)0!g1632ptPBADXM|A0"><field name="keycode">38</field><field name="keyvar" id="o[w}WsgBKuFy.z]%R=PD">Key ID</field></block></value><value name="B"><block type="game_key_pressed" id="qN=Q,Gs,ENv}yPTpeP:V"><field name="keycode">90</field><field name="keyvar" id="o[w}WsgBKuFy.z]%R=PD">Key ID</field></block></value></block></value><value name="B"><block type="logic_compare" id="UyL.{[M)Qe;k-kO%IJv9"><field name="OP">LT</field><value name="A"><block type="variables_get" id="sV_K.k@5?#4y=B6,Oy6R"><field name="VAR" id="xEzdj*xb{`XoX{kgFLcD">Air Time</field></block></value><value name="B"><block type="math_number" id="B7G+RyEe(u+|H`.3KR[u"><field name="NUM">4</field></block></value></block></value></block></value><statement name="DO0"><block type="math_change" id="VVj;-,?KU10}nE@OB!-G"><field name="VAR" id="Pt!:)ls;QXI3P%6SFyd(">Player Y Velocity</field><value name="DELTA"><shadow type="math_number"><field name="NUM">1</field></shadow><block type="math_number" id="lbcwj7_!*)L2p/wG78S;"><field name="NUM">-3</field></block></value><next><block type="variables_set" id=",,R9-]gs=}YKGf$XNUw{"><field name="VAR" id="*y`v@b(Aut`%7zsxv+{r">Player Is On Floor</field><value name="VALUE"><block type="logic_boolean" id="9STbujyyCM6]X0B,v=H["><field name="BOOL">FALSE</field></block></value><next><block type="math_change" id="1nRN8a-xXY9[]H9!^72L"><field name="VAR" id="(0h|$?1(TuymL@V=4#[s">Player Y</field><value name="DELTA"><shadow type="math_number"><field name="NUM">1</field></shadow><block type="math_number" id="m}p+{}=|7s7Df#s$+fF*"><field name="NUM">1</field></block></value></block></next></block></next></block></statement><next><block type="variables_set" id="puCBwhBua3A?KLMo#e;7"><field name="VAR" id="Pt!:)ls;QXI3P%6SFyd(">Player Y Velocity</field><value name="VALUE"><block type="math_arithmetic" id=",ZE6K3~ED0phrpp|3+nf"><field name="OP">ADD</field><value name="A"><block type="variables_get" id="H=PMip1~:z}S]uNBPW?N"><field name="VAR" id="Pt!:)ls;QXI3P%6SFyd(">Player Y Velocity</field></block></value><value name="B"><block type="math_number" id="=cVzqdg_B`:~garJtWqY"><field name="NUM">0.4</field></block></value></block></value><next><block type="variables_set" id="e~k9Y;.Z!*/g::Hh$O!x"><field name="VAR" id=")Y$_$+XE;f%YK,yp4[xH">Player X Velocity</field><value name="VALUE"><block type="math_timesordeivide" id=",VlQF7#q`t5|fZZB$lzx"><field name="rule">/</field><value name="number1"><block type="variables_get" id="~B6DcUOswoJ(?%}M.mTj"><field name="VAR" id=")Y$_$+XE;f%YK,yp4[xH">Player X Velocity</field></block></value><value name="number2"><block type="math_number" id="99O+}_|#VY=mdt`+g|Ou"><field name="NUM">1.17</field></block></value></block></value><next><block type="math_change" id="]t-1i:f.F(z7bh]@GUw)"><field name="VAR" id="ppiw.UHw{GSSVLc[`@fv">Player X</field><value name="DELTA"><shadow type="math_number" id="1%a+1%4X0nM@,`;fDImm"><field name="NUM">1</field></shadow><block type="variables_get" id="GNOhckjb^`vAl*Ug%4d7"><field name="VAR" id=")Y$_$+XE;f%YK,yp4[xH">Player X Velocity</field></block></value><next><block type="math_change" id="Y!EY4M%h)@;SVMj`]hNx"><field name="VAR" id="(0h|$?1(TuymL@V=4#[s">Player Y</field><value name="DELTA"><shadow type="math_number" id="]L(a[*tClO(lHZMF-_/K"><field name="NUM">1</field></shadow><block type="variables_get" id="yO92MaZr0{b$,aKUuMhu"><field name="VAR" id="Pt!:)ls;QXI3P%6SFyd(">Player Y Velocity</field></block></value><next><block type="controls_if" id="NqupgFK{7W@okp:/e85+"><value name="IF0"><block type="logic_compare" id="D#*ezais}mYU/?LU]+Z%"><field name="OP">GT</field><value name="A"><block type="variables_get" id="|3ME#W[aPCunnC*T59wY"><field name="VAR" id="(0h|$?1(TuymL@V=4#[s">Player Y</field></block></value><value name="B"><block type="math_number" id="bS^9E%,/LTJ$tNZ{dCmr"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="variables_set" id=";6tuvNji-e7%tXs)*ojh"><field name="VAR" id="Pt!:)ls;QXI3P%6SFyd(">Player Y Velocity</field><value name="VALUE"><block type="math_number" id="jj;ZX4t8-m$)UZ!SA+lO"><field name="NUM">0</field></block></value><next><block type="variables_set" id="I}`27ay8u8`mB2iG93;]"><field name="VAR" id="(0h|$?1(TuymL@V=4#[s">Player Y</field><value name="VALUE"><block type="math_number" id=":AYlVBJQH{qn`Ublz4i-"><field name="NUM">0</field></block></value><next><block type="variables_set" id="4]?#OQ@AXkB;^:?Mh`%S"><field name="VAR" id="*y`v@b(Aut`%7zsxv+{r">Player Is On Floor</field><value name="VALUE"><block type="math_number" id="-tjm3p!S2Ag$-HVXUS55"><field name="NUM">1</field></block></value></block></next></block></next></block></statement><next><block type="controls_ifelse" id="{9#xNsa)_8k#A#W2DS!T"><value name="IF0"><block type="logic_negate" id="!qQGey9Rz{.OU{-=A!(g"><value name="BOOL"><block type="variables_get" id="!ni*!V`jBaO1nw.=T3GG"><field name="VAR" id="*y`v@b(Aut`%7zsxv+{r">Player Is On Floor</field></block></value></block></value><statement name="DO0"><block type="math_change" id="v@nF5LNogVt!/hP-_i_Q"><field name="VAR" id="xEzdj*xb{`XoX{kgFLcD">Air Time</field><value name="DELTA"><shadow type="math_number" id="`~HM1Lq?$vU1q.|P{0O!"><field name="NUM">1</field></shadow><block type="math_number" id="JdyCWHtQmEAfR!.;/X+o"><field name="NUM">1</field></block></value></block></statement><statement name="ELSE"><block type="variables_set" id="/efjQnj(9ZfM4[!nX0*!"><field name="VAR" id="xEzdj*xb{`XoX{kgFLcD">Air Time</field><value name="VALUE"><block type="math_number" id="PyO$oMl=L`9o3EYh?YQP"><field name="NUM">0</field></block></value></block></statement><next><block type="controls_if" id="};$p:(}hACHLbTl`AmoS"><value name="IF0"><block type="logic_compare" id="VVzc7SJGN/?B58b$:u3F"><field name="OP">GT</field><value name="A"><block type="variables_get" id="I=77)J6cz!@x;zAKmJJA"><field name="VAR" id="ppiw.UHw{GSSVLc[`@fv">Player X</field></block></value><value name="B"><block type="math_number" id=",S66UXCOk?b)ECAo40;$"><field name="NUM">200</field></block></value></block></value><statement name="DO0"><block type="variables_set" id="VUsN($*2{S:d(oyYUpqd"><field name="VAR" id="ppiw.UHw{GSSVLc[`@fv">Player X</field><value name="VALUE"><block type="math_number" id="eCmMSIdy3X*1Hrr:0fPu"><field name="NUM">200</field></block></value></block></statement><next><block type="controls_if" id="SDwnv*C|(,m~6k.GgMlc"><value name="IF0"><block type="logic_compare" id="+:Gu1YE,+WQHE.Cv:`K["><field name="OP">LT</field><value name="A"><block type="variables_get" id="A=f),=Oj.e1kBQ]?xw}u"><field name="VAR" id="ppiw.UHw{GSSVLc[`@fv">Player X</field></block></value><value name="B"><block type="math_number" id="7a-G]pk0hgy[YS?r){WM"><field name="NUM">-200</field></block></value></block></value><statement name="DO0"><block type="variables_set" id="E*wOgL4/Il.TL^l?z)Ke"><field name="VAR" id="ppiw.UHw{GSSVLc[`@fv">Player X</field><value name="VALUE"><block type="math_number" id="~v%,yWns8(/tA0md^%eb"><field name="NUM">-200</field></block></value></block></statement><next><block type="elements_set_setting" id="Ir;y8Z`@)2G1}g5ZVk5x"><field name="element" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><field name="NAME">style.left</field><value name="setting_val"><block type="math_arithmetic" id="Ow#9Cq2owc8y{+i)~:-{"><field name="OP">ADD</field><value name="A"><block type="variables_get" id="YpCwEanN2W7/r!j(~p$m"><field name="VAR" id="ppiw.UHw{GSSVLc[`@fv">Player X</field></block></value><value name="B"><block type="math_timesordeivide" id="jc#]xV6H!`EUOk`7*-]J"><field name="rule">/</field><value name="number1"><block type="game_width" id="zzR4}4Rr-(%{!t1h107u"></block></value><value name="number2"><block type="math_number" id="uJ2ihZ/6Das|=_J:7){["><field name="NUM">2.1</field></block></value></block></value></block></value><next><block type="elements_set_setting" id="`LPE%;m2~YQY1{(HU%$%"><field name="element" id="OMP`Ml*U)2qaa%qV:Kj6">Player</field><field name="NAME">style.top</field><value name="setting_val"><block type="math_arithmetic" id="kc|gqOQM?W95B~!x9Ju5"><field name="OP">ADD</field><value name="A"><block type="variables_get" id="ck?({s*wSC([OA];3Yy,"><field name="VAR" id="(0h|$?1(TuymL@V=4#[s">Player Y</field></block></value><value name="B"><block type="math_timesordeivide" id="=6abEXwGQnx[tLhuY;ss"><field name="rule">/</field><value name="number1"><block type="game_height" id="C/_|OIz;+H27}SE?LSQI"></block></value><value name="number2"><block type="math_number" id="Go.qU1I]7y5isSDhV.e["><field name="NUM">2.1</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="game_on_resize" id="h%zWe$J4(Mefs2wwFh*i" x="-537" y="485"><comment pinned="true" h="80" w="160">Resize The Ground.</comment><statement name="code"><block type="elements_set_setting" id="A2@;J!I?@Jp;s1!4f0=j"><field name="element" id="yq1rjG$[BQsyi.:#K?45">floor</field><field name="NAME">style.width</field><value name="setting_val"><block type="game_width" id="a+/W(7?t|y/)4uysuADr"></block></value><next><block type="elements_set_setting" id="9j{aYf0X8M%-Hv}RCc6s"><field name="element" id="yq1rjG$[BQsyi.:#K?45">floor</field><field name="NAME">style.height</field><value name="setting_val"><block type="math_arithmetic" id="zC[4A,Bi*F:2(SVn4Gr3"><field name="OP">MINUS</field><value name="A"><block type="math_timesordeivide" id="**i#%PGt*xS393zPvXyC"><field name="rule">/</field><value name="number1"><block type="game_height" id="f%#]sY,L/1{D@I!T)02g"></block></value><value name="number2"><block type="math_number" id="_FzXW~OF:VoqFXW})8,R"><field name="NUM">2.1</field></block></value></block></value><value name="B"><block type="math_number" id="CTEm{OaqrJyq]f^WOfZY"><field name="NUM">30</field></block></value></block></value><next><block type="elements_set_setting" id="M/`+^Na:0n^MK/Ad$]$N"><field name="element" id="yq1rjG$[BQsyi.:#K?45">floor</field><field name="NAME">style.left</field><value name="setting_val"><block type="math_timesordeivide" id="OI*eb2Wg(8aft4L,W3l*"><field name="rule">*</field><value name="number1"><block type="game_width" id="9:,bye-wxq=Y5,oHo+*="></block></value><value name="number2"><block type="math_number" id="8tiLe3oNVXkE`g$O7[i:"><field name="NUM">0</field></block></value></block></value><next><block type="elements_set_setting" id="nN*eEmkRg8CF}Nw]mn*x"><field name="element" id="yq1rjG$[BQsyi.:#K?45">floor</field><field name="NAME">style.top</field><value name="setting_val"><block type="math_arithmetic" id="E8`F/oI`{#n!6F}lbGwW"><field name="OP">ADD</field><value name="A"><block type="math_number" id="2UOY3owZ6auht=90slR1"><field name="NUM">30</field></block></value><value name="B"><block type="math_timesordeivide" id="JVEL%89*q{P3/NDHE(H%"><field name="rule">/</field><value name="number1"><block type="game_height" id="X?ZNCcIa8X08:e(=IR`:"></block></value><value name="number2"><block type="math_number" id="XLR4e|2|A?g+O-3(-69C"><field name="NUM">2.1</field></block></value></block></value></block></value></block></next></block></next></block></next></block></statement></block></xml>
+</xml>
+
+
+<xml id="toolbox" style="display: none" style="">
+    <category name="Controls" colour="#3a9600">
+      <block type="controls_repeat_ext"></block>
+      <block type="controls_repeat"></block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for"></block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category name="Conditions" colour="#0077ff">
+      <block type="controls_if"></block>
+      <block type="controls_ifelse"></block>
+    </category>
+    <category name="Logic" colour="#3c40a3">
+      <block type="logic_boolean"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+	  <block type="logic_negate"></block>
+    </category>    
+    <category name="Math" colour="#047874">
+      <block type="math_number"></block>
+	  <block type="math_arithmetic"></block>
+	  <block type="math_timesordeivide"></block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_constant"></block>
+      <block type="math_number_property"></block>
+      <block type="math_round"></block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain"></block>
+      <block type="math_random_int"></block>
+      <block type="math_random_float"></block>
+      <block type="math_atan2"></block>
+	  <block type="math_angle_angle"></block>
+    </category>
+    <category name="Lists" colour="#880c9c">
+      <block type="lists_create_empty"></block>
+      <block type="lists_repeat"></block>
+      <block type="lists_reverse"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_length"></block>
+	  <block type="lists_get_item_from_number"></block>
+	  <block type="lists_itext"></block>
+    </category>
+	<category name="Text" colour="#0d664a">
+	    <block type="text"></block>
+		<block type="text_multiline"></block>
+		<block type="text_join"></block>
+		<block type="text_indexOf"></block>
+		<block type="text_append"></block>
+		<block type="text_isEmpty"></block>
+		<block type="text_length"></block>
+		<block type="text_print"></block>
+	</category>
+	<category name="Colour" colour="#d19d34">
+	    <block type="colour_picker"></block>
+		<block type="colour_random"></block>
+		<block type="colour_rgb"></block>
+		<block type="colour_blend"></block>
+	</category>
+	<sep colour="#00000"></sep>
+	<category name="Variables" colour="#bd0272" custom="VARIABLE"></category>
+	<category name="Functions" colour="#880c9c" custom="PROCEDURE"></category>
+	<sep colour="#00000"></sep>
+	<category name="Game" colour="#07f02a">
+	    <block type="game_on_tick"></block>
+		<block type="game_on_resize"></block>
+		<block type="game_width"></block>
+		<block type="game_height"></block>
+		<block type="game_wait"></block>
+	    <block type="game_on_mouse_move"></block>
+		<block type="game_keydetector"></block>
+		<block type="game_key_pressed"></block>
+		<block type="game_open_page"></block>
+		<block type="game_open_popup"></block>
+		<block type="game_resize_to"></block>
+		<block type="game_move_to"></block>
+	</category>
+    <category name="Elements" colour="#c72020">
+	  <block type="elements_all_elements"></block>
+      <block type="elements_create_element"></block>
+	  <block type="elements_set_setting"></block>
+	  <block type="elements_bg_color"></block>
+	  <block type="elements_put_screen"></block>
+	  <block type="elements_get"></block>
+	  <block type="elements_on_event"></block>
+	  <block type="element_append_child"></block>
+	  <block type="elments_play_pause"></block>
+	  <block type="elements_delete_all_div"></block>
+    </category>
+	<category colour="20" name="Styles (CSS)">
+	    <block type="css_filter"></block>
+		<block type="css_px"></block>
+		<block type="css_font_famliy"></block>
+		<block type="css_percent"></block>
+		<block type="css_positioning"></block>
+	</category>
+	<category name="Other" colour="#000000">
+	    <block type="function__input"></block>
+	</category>
+</xml>
+<script>
+function pressedplaypause() {
+	if (playbutton.name == "play") {
+		var code = Blockly.JavaScript.workspaceToCode(workspace);
+		previewcode(code,document.getElementById('gamename').value);
+		tabswitch("source");
+		playbutton.src = "preview/stop.png";
+		playbutton.name = "pause";
+	} else {
+	    playbutton.src = "preview/play.png";
+		playbutton.name = "play";
+		injectwindow.window.close();
+	}
+}
+function newgame() { 
+    var confirmed = window.confirm("You May Have Unsaved Changes, Do You Want To Make A New Game?");
+    if (confirmed) {
+	    document.getElementById("gamename").value = "Untitled Game";
+		workspace.clear();
+	};
+};
+</script>
+
+
+<script>
+  var blocklyArea = document.getElementById('blocklyArea');
+  var blocklyDiv = document.getElementById('blocklyDiv');
+  
+  
+  
+  
+  let workspace = Blockly.inject(blocklyDiv,
+      {toolbox: document.getElementById('toolbox'),
+      media:"media/",
+      trashcan: false,
+       grid:
+          {spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: false},
+           zoom:
+         {controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          pinch: true},
+      move:{
+      scrollbars: {
+      horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: false}
+      });
+      
+      
+      
+      
+      
+      
+      
+  var onresize = function(e) {
+    // Compute the absolute coordinates and dimensions of blocklyArea.
+    document.getElementById("source").style.display = "none";
+    document.getElementById("game").style.display = "none";
+    document.getElementById("editor").style.display = "block";
+    
+    if (document.getElementById("editor").style.display == "block") {
+    var element = blocklyArea;
+    var x = 0;
+    var y = 0;
+    do {
+      x += element.offsetLeft;
+      y += element.offsetTop;
+      element = element.offsetParent;
+    } while (element);
+    // Position blocklyDiv over blocklyArea.
+    blocklyDiv.style.left = x + 'px';
+    blocklyDiv.style.top = y + 'px';
+    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    Blockly.svgResize(workspace);
+    }
+  };
+  window.addEventListener('resize', onresize, false);
+  onresize();
+  Blockly.svgResize(workspace);
+  function UpdateFunction(event) {
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    document.getElementById('Code').innerHTML = code;
+  }
+  workspace.addChangeListener(UpdateFunction);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ function save() {
+    var xml = Blockly.Xml.workspaceToDom(workspace);
+    var xml_text = Blockly.Xml.domToText(xml);
+	localStorage.setItem(("saveDAT:" + document.getElementById("gamename").value),xml_text);
+	Blockly.alert("The Game Was Saved");
+ }
+ function load() { 
+    var nameofgame = window.prompt("Name Of Game:","My Game");
+	workspace.clear();
+    var xml = Blockly.Xml.textToDom(localStorage.getItem("saveDAT:" + nameofgame));
+    Blockly.Xml.domToWorkspace(xml, workspace);
+	document.getElementById("gamename").value = nameofgame;
+ }
+</script>
+<script>
+  function updatetitle() {
+    document.title = document.getElementById("gamename").value + " | Editor | Gvbvdxx's Game Maker";
+  }
+  updatetitle();
+  document.getElementById("html").style.cursor = "default";
+</script>
+<script src="editorBlocks/elements.js"></script>
+<script src="editorBlocks/angle.js"></script>
+<script src="editorBlocks/css.js"></script>
+<script src="editorBlocks/lists.js"></script>
+<script src="editorBlocks/game.js"></script>
+<script src="editorBlocks/callback.js"></script>
+<script>
+CustomDialog = {};
+
+/** Override Blockly.alert() with custom implementation. */
+Blockly.alert = function(message, callback) {
+  console.log('' + message);
+  CustomDialog.show('', message, {
+    onCancel: callback
+  });
+};
+
+/** Override Blockly.confirm() with custom implementation. */
+Blockly.confirm = function(message, callback) {
+  console.log('' + message);
+  CustomDialog.show('', message, {
+    showOkay: true,
+    onOkay: function() {
+      callback(true);
+    },
+    showCancel: true,
+    onCancel: function() {
+      callback(false);
+    }
+  });
+};
+
+/** Override Blockly.prompt() with custom implementation. */
+Blockly.prompt = function(message, defaultValue, callback) {
+  console.log('' + message);
+  CustomDialog.show('', message, {
+    showInput: true,
+    showOkay: true,
+    onOkay: function() {
+      callback(CustomDialog.inputField.value);
+    },
+    showCancel: true,
+    onCancel: function() {
+      callback(null);
+    }
+  });
+  CustomDialog.inputField.value = defaultValue;
+};
+
+/** Hides any currently visible dialog. */
+CustomDialog.hide = function() {
+  if (CustomDialog.backdropDiv_) {
+    CustomDialog.backdropDiv_.style.display = 'none';
+    CustomDialog.dialogDiv_.style.display = 'none';
+  }
+};
+
+/**
+ * Shows the dialog.
+ * Allowed options:
+ *  - showOkay: Whether to show the OK button.
+ *  - showCancel: Whether to show the Cancel button.
+ *  - showInput: Whether to show the text input field.
+ *  - onOkay: Callback to handle the okay button.
+ *  - onCancel: Callback to handle the cancel button and backdrop clicks.
+ */
+CustomDialog.show = function(title, message, options) {
+  var backdropDiv = CustomDialog.backdropDiv_;
+  var dialogDiv = CustomDialog.dialogDiv_;
+  if (!dialogDiv) {
+    // Generate HTML
+    backdropDiv = document.createElement('div');
+    backdropDiv.id = 'customDialogBackdrop';
+    backdropDiv.style.cssText =
+        'position: absolute;' +
+        'top: 0; left: 0; right: 0; bottom: 0;' +
+        'background-color: rgba(0, 0, 0, .7);' +
+		'border:0;' +
+		'border-radius:0px;' +
+        'z-index: 100;';
+    document.body.appendChild(backdropDiv);
+
+    dialogDiv = document.createElement('div');
+    dialogDiv.id = 'customDialog';
+    dialogDiv.style.cssText =
+        'background-color: #fff;' +
+        'width: 400px;' +
+        'margin: 20px auto 0;' +
+		'border:0; border-radius:7px;' +
+        'padding: 10px;';
+    backdropDiv.appendChild(dialogDiv);
+
+    dialogDiv.onclick = function(event) {
+      event.stopPropagation();
+    };
+
+    CustomDialog.backdropDiv_ = backdropDiv;
+    CustomDialog.dialogDiv_ = dialogDiv;
+  }
+  backdropDiv.style.display = 'block';
+  dialogDiv.style.display = 'block';
+
+  dialogDiv.innerHTML =
+      '<header class="customDialogTitle"></header>' +
+      '<p class="customDialogMessage"></p>' +
+      (options.showInput ? '<div><input id="customDialogInput"></div>' : '') +
+      '<div class="customDialogButtons">' +
+      (options.showCancel ? '<button id="customDialogCancel">Cancel</button>': '') +
+      (options.showOkay ? '<button id="customDialogOkay">Ok</button>': '') +
+      '</div>';
+  dialogDiv.getElementsByClassName('customDialogTitle')[0]
+      .appendChild(document.createTextNode(title));
+  dialogDiv.getElementsByClassName('customDialogMessage')[0]
+      .appendChild(document.createTextNode(message));
+
+  var onOkay = function(event) {
+    CustomDialog.hide();
+    options.onOkay && options.onOkay();
+    event && event.stopPropagation();
+  };
+  var onCancel = function(event) {
+    CustomDialog.hide();
+    options.onCancel && options.onCancel();
+    event && event.stopPropagation();
+  };
+
+  var dialogInput = document.getElementById('customDialogInput');
+  CustomDialog.inputField = dialogInput;
+  if (dialogInput) {
+    dialogInput.focus();
+
+    dialogInput.onkeyup = function(event) {
+      if (event.keyCode == 13) {
+        // Process as OK when user hits enter.
+        onOkay();
+        return false;
+      } else if (event.keyCode == 27)  {
+        // Process as cancel when user hits esc.
+        onCancel();
+        return false;
+      }
+    };
+  } else {
+    var okay = document.getElementById('customDialogOkay');
+    okay && okay.focus();
+  }
+
+  if (options.showOkay) {
+    document.getElementById('customDialogOkay')
+        .addEventListener('click', onOkay);
+  }
+  if (options.showCancel) {
+    document.getElementById('customDialogCancel')
+        .addEventListener('click', onCancel);
+  }
+
+  backdropDiv.onclick = onCancel;
+};
+document.getElementById("editor").style.display = "block";
+</script>
+<script>
+var xml = Blockly.Xml.textToDom(document.getElementById('defaltGame').innerHTML);
+Blockly.Xml.domToWorkspace(xml, workspace);
+</script>

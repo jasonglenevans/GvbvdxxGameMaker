@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+
+<link rel="icon" href="icon.png">
+
+
+
+
+
+
+
+
+
+
+
+<!--
+Toolbox For Adding Blocks, Do Not Delete!
+-->
+
+
+<xml id="toolbox" style="display: none" style="">
+  
+  
+  
+  
+  
+  
+    <category name="Controls" colour="#3a9600">
+      <block type="controls_repeat_ext"></block>
+      <block type="controls_repeat"></block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for"></block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    
+    
+    
+    
+    
+    
+    
+    <category name="Conditions" colour="#0077ff">
+      <block type="controls_if"></block>
+      <block type="controls_ifelse"></block>
+    </category>
+    
+    
+    
+    
+    
+    
+    <category name="Logic" colour="#3c40a3">
+      <block type="logic_boolean"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+	  <block type="logic_negate"></block>
+    </category>
+    
+    
+    
+    
+    
+    
+    
+    <category name="Math" colour="#047874">
+      <block type="math_number"></block>
+	  <block type="math_arithmetic"></block>
+	  <block type="math_timesordeivide"></block>
+      <block type="math_single"></block>
+      <block type="math_trig"></block>
+      <block type="math_constant"></block>
+      <block type="math_number_property"></block>
+      <block type="math_round"></block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo"></block>
+      <block type="math_constrain"></block>
+      <block type="math_random_int"></block>
+      <block type="math_random_float"></block>
+      <block type="math_atan2"></block>
+	  <block type="math_angle_angle"></block>
+    </category>
+    
+    
+    
+    
+    
+    
+    
+    <category name="Lists" colour="#880c9c">
+      <block type="lists_create_empty"></block>
+      <block type="lists_repeat"></block>
+      <block type="lists_reverse"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_length"></block>
+	    <block type="lists_get_item_from_number"></block>
+	    <block type="lists_itext"></block>
+	    <block type="lists_add"></block>
+    </category>
+    
+    
+    
+    
+    
+    
+    
+    
+	<category name="Text" colour="#0d664a">
+	    <block type="text"></block>
+		<block type="text_multiline"></block>
+		<block type="text_join"></block>
+		<block type="text_indexOf"></block>
+		<block type="text_append"></block>
+		<block type="text_isEmpty"></block>
+		<block type="text_length"></block>
+		<block type="text_print"></block>
+	</category>
+	
+	
+	
+	
+	
+	<category name="Colour" colour="#d19d34">
+	    <block type="colour_picker"></block>
+		<block type="colour_random"></block>
+		<block type="colour_rgb"></block>
+		<block type="colour_blend"></block>
+	</category>
+	
+	
+	
+	
+	
+	
+	
+	
+	<sep colour="#00000"></sep>
+	
+	
+	
+	
+	
+	<category name="Variables" colour="#bd0272" custom="VARIABLE"></category>
+	
+	<category name="Functions" colour="#880c9c" custom="PROCEDURE"></category>
+	
+	
+	<sep colour="#00000"></sep>
+	<category name="Game" colour="#07f02a">
+	    <block type="game_on_tick"></block>
+		<block type="game_on_resize"></block>
+		<block type="game_width"></block>
+		<block type="game_height"></block>
+		<block type="game_wait"></block>
+	    <block type="game_on_mouse_move"></block>
+		<block type="game_keydetector"></block>
+		<block type="game_key_pressed"></block>
+		<block type="game_open_page"></block>
+		<block type="game_open_popup"></block>
+		<block type="game_resize_to"></block>
+		<block type="game_move_to"></block>
+		<block type="game_add_mouse_detector"></block>
+		<block type="game_mouse_down"></block>
+		<block type="game_full_screen"></block>
+		<block type="game_add_lock"></block>
+		<block type="game_focused"></block>
+	</category>
+	
+	
+	
+	
+	
+	
+	
+	
+    <category name="Elements" colour="#c72020">
+	  <block type="elements_all_elements"></block>
+      <block type="elements_create_element"></block>
+	  <block type="elements_set_setting"></block>
+	  <block type="elements_bg_color"></block>
+	  <block type="elements_set_cursor"></block>
+	  <block type="elements_put_screen"></block>
+	  <block type="elements_get"></block>
+	  <block type="elements_on_event"></block>
+	  <block type="element_append_child"></block>
+	  <block type="elments_play_pause"></block>
+	  <block type="elements_delete_all_div"></block>
+	  <block type="elements_rotate_element"></block>
+	  <block type="elements_delete_element"></block>
+	  <block type="elements_this"></block>
+	  <block type="elements_listener"></block>
+	  <block type="elements_hide"></block>
+	  <block type="elements_show"></block>
+    </category>
+    
+    
+    
+    
+    
+    
+	<category colour="20" name="Styles">
+	    <block type="css_filter"></block>
+		<block type="css_px"></block>
+		<block type="css_font_famliy"></block>
+		<block type="css_percent"></block>
+		<block type="css_positioning"></block>
+		<block type="css_cursor"></block>
+		<block type="css_url"></block>
+		
+	</category>
+	
+	
+	
+	
+	
+	<sep></sep>
+	<category colour="#5d9642" name="Game Controler">
+		<block type="gamepad"></block>
+		<block type="gamepad_button_pushed"></block>
+		<block type="gamepad_stickaxis"></block>
+		<block type="gamepad_isconnected"></block>
+	</category>
+	
+	
+	
+	<category name="Other" colour="#000000">
+	    <block type="function__input"></block>
+	    <block type="experimental_try_catch"></block>
+	</category>
+	
+	
+	
+	
+	
+	
+	
+	
+    <category colour="#c29d30" name="Local Storage">
+      <block type="localstorage_add"></block>
+      <block type="localstorage_get"></block>
+      <block type="localstorage_remove"></block>
+    </category>
+    
+    
+    <category colour="#59158c" name="beepbox">
+      <block type="beepbox_load_track"></block>
+    	<block type="beepbox_load_synth"></block>
+    	<block type="beepbox_is_playing"></block>
+    	<block type="beepbox_play"></block>
+    	<block type="beepbox_pause"></block>
+    	<sep colour="#00000"></sep>
+    	<block type="beepbox_loaded"></block>
+    	<block type="beepbox_on_load"></block>
+	  </category>
+	  
+	  
+	  
+	  
+	  <category name="Canvas" colour="#000000">
+	    <block type="canvas_create"></block>
+	    <block type="canvas_make_2d_content"></block>
+	    <block type="canvas_clear"></block>
+	    <block type="canvas_change_stroke_style"></block>
+	    <block type="canvas_change_fill_style"></block>
+	    <block type="canvas_change_stroke_width"></block>
+	    <block type="canvas_draw_rectangle"></block>
+	    <block type="canvas_begin_path"></block>
+	    <block type="canvas_move_to"></block>
+	    <block type="canvas_line_to"></block>
+	    <block type="canvas_stroke"></block>
+	  </category>
+</xml>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="editorstyle.css">
+<html ondragstart="return false" onselectstart="return false" style="font-family:Arial; cursor:wait;" id="html">
+<head style="background-color:#636363;">
+  <title>Loading... Gvbvdxx's Game Editor</title>
+</head>
+<body>
+    
+    <div style="background-color:#636363; font-family:Arial; height:42px;">
+    <img style="" src="logo.svg" width="159" height="42" class="left"></img>
+    <a href="index.html" style="font-size:40px; color:#ffff; text-align: center;"></a>
+    </div>
+    
+    <hr>
+    <div id="app" style="background-color:#636363;">
+    <div id="tabs" ondragstart="return false" onselectstart="return false" style="height:50.2px; background-color:gray; display:block;">
+        <img height="50" id="TABEditor" src="editortabs/editor.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" class="tab" onclick="tabswitch('editor');"></img><img height="50" id="TABGame" src="editortabs/game.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)'" class="tab" onclick="tabswitch('game');"></img><img height="50" id="TABSource" src="editortabs/source.svg" style="cursor:pointer;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)'" class="tab" onclick="tabswitch('source');"></img>
+	    <img height="32" id="PlayPauseButton" src="preview/play.png" style="image-rendering: pixelated; cursor:pointer; white-space:nowarp;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" class="previewButton" onclick="pressedplaypause()" name="play"></img>
+		<img id="save" height="32" src="saveIcon/Save.png" style="image-rendering: pixelated; cursor:pointer; white-space:nowarp;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" onclick="save();"></img>
+		<img id="load" height="32" src="saveIcon/Load.png" style="image-rendering: pixelated; cursor:pointer; white-space:nowarp;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" onclick="load();"></img>
+	    <img id="new-game" height="32" src="saveIcon/New.png" style="image-rendering: pixelated; cursor:pointer; white-space:nowarp;" onmouseover="this.style.filter = 'brightness(150%)';" onmouseout="this.style.filter = 'brightness(100%)';" onclick="newgame();"></img>
+    <input type="file" id="gameLoader" accept=".gmf,.gmb" hidden onchange="previewFile();">
+    </div>
+    <hr>
+  <center style="background-color:#636363; width:100%; height:calc(100vh - 140px); postion:relative;">
+    <div id="game" style="display:none;">
+
+	  <p>Title:</p>
+	  <input type="text" value="Untitled Game" oninput="updatetitle();" onchange="updatetitle();" style="width:350px; height:30px; border:0; border-radius:5px;" id="gamename" ></input>
+	  <p>Notes And Instructions:</p>
+	  <textarea id="infoText" style="resize:none; width:90%; height:calc(100vh - 300px); background-color:white;"></textarea>
+    </div>
+    
+    
+    <div id="editor" style="display:none;">
+      <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+      <script src="blockly_compressed.js"></script>
+      <script src="blocks_compressed.js"></script>
+      <script src="javascript_compressed.js"></script>
+      <script src="msg/js/en.js"></script>
+      <link rel="stylesheet" href="toolbox_style.css">
+      
+      <div id="blocklyArea" style="width:100%; height:calc(100vh - 140px); postion:relative;"><div id="blocklyDiv" style="position: absolute; left:0;"><div id="loading_app"><h1>Loading...</h1><br><img src="loading.jpg" width="50" height="50"></img></div></div></div>
+    
+    </div>
+    
+    
+    <div id="source" style="display:none;">
+	    <p>Game Scripts:</p>
+        <textarea id="Code" disabled style="resize:none; width:90%; height:calc(100vh - 470px); postion:relative; border:0; border-radius:5px; background-color:#ffff; background-color:#000000; color:#ffffff;"></textarea>
+		<p>Log:</p>
+		<textarea id="INJECTSCRIPTLog" disabled style="resize:none; width:90%; height:calc(100vh - 470px); postion:relative; border:0; border-radius:5px; background-color:#000000; color:#ffffff;"></textarea>
+	</div>
+  </center>
+  </div>
+  
+  
+  
+</body>
+</html>
+<script src="audio.js"></script>
+<script src="editortabs.js"></script>
+<script src="preview.js"></script>
+<xml id="defaltGame" hidden>
+  
+</xml>
+
+
+<script>
+function pressedplaypause() {
+	if (playbutton.name == "play") {
+		var code = Blockly.JavaScript.workspaceToCode(workspace);
+		previewcode(code,document.getElementById('gamename').value);
+		tabswitch("source");
+		playbutton.src = "preview/stop.png";
+		playbutton.name = "pause";
+	} else {
+	    playbutton.src = "preview/play.png";
+		playbutton.name = "play";
+		injectwindow.window.close();
+	}
+}
+function newgame() {
+    var confirmed = window.confirm("You May Have Unsaved Changes, Do You Want To Make A New Game?");
+    if (confirmed) {
+	    document.getElementById("gamename").value = "Untitled Game";
+		workspace.clear();
+	};
+};
+</script>
+<script src="filesaver.js"></script>
+<script src="htmlExport.js"></script>
+<script>
+
+  class CustomCategory extends Blockly.ToolboxCategory {
+  /**
+   * Constructor for a custom category.
+   * @override
+   */
+  constructor(categoryDef, toolbox, opt_parent) {
+    super(categoryDef, toolbox, opt_parent);
+  }
+  /** @override */
+  addColourBorder_(colour){
+  this.rowDiv_.style.backgroundColor = colour;
+}
+
+setSelected(isSelected){
+   // We do not store the label span on the category, so use getElementsByClassName.
+   var labelDom = this.rowDiv_.getElementsByClassName('blocklyTreeLabel')[0];
+   
+   if (isSelected) {
+     // Change the background color of the div to a color.
+     this.rowDiv_.style.backgroundColor = 'grey';
+     // Set the colour of the text to the colour of the category.
+     labelDom.style.color = 'white';
+   } else {
+     // Set the background back to the original colour.
+     this.rowDiv_.style.backgroundColor = this.colour_;
+     // Set the text back to white.
+     labelDom.style.color = 'white';
+   }
+   
+   // This is used for accessibility purposes.
+   Blockly.utils.aria.setState(/** @type {!Element} */ (this.htmlDiv_),
+       Blockly.utils.aria.State.SELECTED, isSelected);
+}
+}
+Blockly.registry.register(
+    Blockly.registry.Type.TOOLBOX_ITEM,
+    Blockly.ToolboxCategory.registrationName,
+    CustomCategory, true);
+
+function switchtheme() {
+  if (workspace.getTheme().name == "dark") {
+    workspace.setTheme(Blockly.Themes.GGM);
+  } else {
+    workspace.setTheme(Blockly.Themes.Dark);
+  }
+}
+
+
+Blockly.Themes.GGM = Blockly.Theme.defineTheme('GGM', {
+  'base': Blockly.Themes.Classic,
+  'componentStyles': {
+    'workspaceBackgroundColour': '#ededed',
+    'toolboxBackgroundColour': '#dedede',
+    'toolboxForegroundColour': '#cccccc',
+    'flyoutBackgroundColour': '#bdbdbd',
+    'flyoutForegroundColour': '#ccc',
+    'flyoutOpacity': 0.9,
+    'scrollbarColour': '#bfbfbf',
+    'insertionMarkerColour': '#fff',
+    'insertionMarkerOpacity': 0.3,
+    'scrollbarOpacity': 0,
+    'cursorColour': 'white',
+    'blackBackground': '#ababab'
+  }
+});
+
+  
+  var blocklyArea = document.getElementById('blocklyArea');
+  var blocklyDiv = document.getElementById('blocklyDiv');
+  
+
+
+
+
+ function save() {
+    var xml = Blockly.Xml.workspaceToDom(workspace);
+    var xml_text = Blockly.Xml.domToText(xml);
+	var saveJSON = {
+		infoText: document.getElementById('infoText').value,
+	    title: document.getElementById('gamename').value,
+		blocks: xml_text
+    };
+    var blob = new Blob([JSON.stringify(saveJSON)], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, document.getElementById('gamename').value + ".gmf");
+ }
+ function saveAsBlocks() {
+    var xml = Blockly.Xml.workspaceToDom(workspace);
+    var xml_text = Blockly.Xml.domToText(xml);
+    var blob = new Blob([xml_text], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, document.getElementById('gamename').value + " Blocks.gmb");
+ }
+ function load() {
+  document.getElementById('gameLoader').click();
+}
+  
+  
+function previewFile() {
+  const [file] = document.getElementById('gameLoader').files;
+  const reader = new FileReader();
+
+  reader.addEventListener("load", () => {
+    // this will then load the file
+	workspace.clear();
+	document.getElementById('infoText').value = "";
+	try {
+	var data = JSON.parse(reader.result);
+	console.log(data);
+	document.getElementById('gamename').value = data.title;
+	try {
+	if (!(data.infoText == null )) {
+	document.getElementById('infoText').value = data.infoText;
+	}
+	} catch (e) {};
+	updatetitle();
+    var xml = Blockly.Xml.textToDom(data.blocks);
+    Blockly.Xml.domToWorkspace(xml, workspace);
+	} catch (e) {
+	document.getElementById('gamename').value = "Game Blocks";
+	updatetitle();
+    var xml = Blockly.Xml.textToDom(reader.result);
+    Blockly.Xml.domToWorkspace(xml, workspace);
+	}
+    
+    document.getElementById('gameLoader').value = null;
+  }, false);
+
+  if (file) {
+    reader.readAsText(file);
+  }
+}
+
+
+
+
+
+
+
+
+  
+  
+  function registerFirstContextMenuOptions() {
+    
+    
+    
+    
+    
+    
+    
+    
+    const newgame = {
+      displayText: 'New Game',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+        document.getElementById("new-game").click();
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'ng',
+      weight: 100,
+    };
+    const exportAsHTML = {
+      displayText: 'Export As A HTML File',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+        exportHTML();
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'HTML',
+      weight: 100,
+    };
+    const playpause = {
+      displayText: 'Play/Pause Game',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+        pressedplaypause();
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'p/p',
+      weight: 100,
+    };
+    const save = {
+      displayText: 'Save Block Code',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+        document.getElementById('save').click();
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 's',
+      weight: 100,
+    };
+    const load = {
+      displayText: 'Load Block Code',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+        document.getElementById('load').click();
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'l',
+      weight: 100,
+    };
+    const changetheme = {
+      displayText: 'Change Editor Theme',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+        switchtheme();
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'ct',
+      weight: 100,
+    };
+    const fullscreeneditor = {
+      displayText: 'Make Editor Full Screen',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+        try {
+        document.getElementById('editor').requestFullscreen();
+        } catch (e) {
+        window.alert("you cannot go full screen, for some reason.");
+        }
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'fs',
+      weight: 100,
+    };
+    const blocks = {
+      displayText: 'Save As Blocks',
+      preconditionFn: function(scope) {
+        return 'enabled';
+      },
+      callback: function(scope) {
+		  saveAsBlocks();
+      },
+      scopeType: Blockly.ContextMenuRegistry.ScopeType.WORKSPACE,
+      id: 'sab',
+      weight: 100,
+    };
+    
+    
+    
+    
+    
+    
+    
+    Blockly.ContextMenuRegistry.registry.register(playpause);
+    Blockly.ContextMenuRegistry.registry.register(newgame);
+    Blockly.ContextMenuRegistry.registry.register(save);
+    Blockly.ContextMenuRegistry.registry.register(load);
+    Blockly.ContextMenuRegistry.registry.register(changetheme);
+    Blockly.ContextMenuRegistry.registry.register(fullscreeneditor);
+	Blockly.ContextMenuRegistry.registry.register(exportAsHTML);
+	Blockly.ContextMenuRegistry.registry.register(blocks);
+    
+    
+    
+    
+    
+    
+    
+  }
+  
+  
+  registerFirstContextMenuOptions();
+  let workspace = Blockly.inject(blocklyDiv,
+      {toolbox: document.getElementById('toolbox'),
+      theme: Blockly.Themes.GGM,
+      media:"media/",
+      trashcan: false,
+       grid:
+          {spacing: 20,
+          length: 3,
+          colour: '#ccc',
+          snap: false},
+         //  zoom:
+       //  {controls: true,
+       //   wheel: false,
+       //   startScale: 1.0,
+        //  maxScale: 2.5,
+        //  minScale: 0,
+        //  scaleSpeed: 0.5,
+      //    pinch: false},
+      move:{
+      scrollbars: {
+      horizontal: true,
+          vertical: true
+        },
+        drag: true,
+        wheel: false}
+      });
+      
+      
+      
+      
+      
+      
+      
+  var onresize = function(e) {
+    // Compute the absolute coordinates and dimensions of blocklyArea.
+    document.getElementById("source").style.display = "none";
+    document.getElementById("game").style.display = "none";
+    document.getElementById("editor").style.display = "block";
+    
+    if (document.getElementById("editor").style.display == "block") {
+    var element = blocklyArea;
+    var x = 0;
+    var y = 0;
+    do {
+      x += element.offsetLeft;
+      y += element.offsetTop;
+      element = element.offsetParent;
+    } while (element);
+    // Position blocklyDiv over blocklyArea.
+    blocklyDiv.style.left = x + 'px';
+    blocklyDiv.style.top = y + 'px';
+    blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
+    blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
+    Blockly.svgResize(workspace);
+    }
+  };
+  window.addEventListener('resize', onresize, false);
+  onresize();
+  Blockly.svgResize(workspace);
+  function UpdateFunction(event) {
+    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    document.getElementById('Code').innerHTML = code;
+  }
+  workspace.addChangeListener(UpdateFunction);
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+</script>
+<script>
+  function updatetitle() {
+    document.title = document.getElementById("gamename").value + " | Editor | Gvbvdxx's Game Maker";
+  }
+  updatetitle();
+  document.getElementById("html").style.cursor = "default";
+</script>
+<script src="editorBlocks/elements.js"></script>
+<script src="editorBlocks/angle.js"></script>
+<script src="editorBlocks/css.js"></script>
+<script src="editorBlocks/lists.js"></script>
+<script src="editorBlocks/game.js"></script>
+<script src="editorBlocks/callback.js"></script>
+<script src="editorBlocks/beepbox.js"></script>
+<script src="editorBlocks/localstorage.js"></script>
+<script src="editorBlocks/canvas.js"></script>
+<script src="editorBlocks/audioctx.js"></script>
+<script src="editorBlocks/gamepad.js"></script>
+<script src="editorBlocks/files.js"></script>
+<script>
+CustomDialog = {};
+
+/** Override Blockly.alert() with custom implementation. */
+Blockly.alert = function(message, callback) {
+  console.log('' + message);
+  CustomDialog.show('', message, {
+    onCancel: callback
+  });
+};
+
+/** Override Blockly.confirm() with custom implementation. */
+Blockly.confirm = function(message, callback) {
+  console.log('' + message);
+  CustomDialog.show('', message, {
+    showOkay: true,
+    onOkay: function() {
+      callback(true);
+    },
+    showCancel: true,
+    onCancel: function() {
+      callback(false);
+    }
+  });
+};
+
+/** Override Blockly.prompt() with custom implementation. */
+Blockly.prompt = function(message, defaultValue, callback) {
+  console.log('' + message);
+  CustomDialog.show('', message, {
+    showInput: true,
+    showOkay: true,
+    onOkay: function() {
+      callback(CustomDialog.inputField.value);
+    },
+    showCancel: true,
+    onCancel: function() {
+      callback(null);
+    }
+  });
+  CustomDialog.inputField.value = defaultValue;
+};
+
+/** Hides any currently visible dialog. */
+CustomDialog.hide = function() {
+  if (CustomDialog.backdropDiv_) {
+    CustomDialog.backdropDiv_.style.display = 'none';
+    CustomDialog.dialogDiv_.style.display = 'none';
+  }
+};
+
+/**
+ * Shows the dialog.
+ * Allowed options:
+ *  - showOkay: Whether to show the OK button.
+ *  - showCancel: Whether to show the Cancel button.
+ *  - showInput: Whether to show the text input field.
+ *  - onOkay: Callback to handle the okay button.
+ *  - onCancel: Callback to handle the cancel button and backdrop clicks.
+ */
+CustomDialog.show = function(title, message, options) {
+  var backdropDiv = CustomDialog.backdropDiv_;
+  var dialogDiv = CustomDialog.dialogDiv_;
+  if (!dialogDiv) {
+    // Generate HTML
+    backdropDiv = document.createElement('div');
+    backdropDiv.id = 'customDialogBackdrop';
+    backdropDiv.style.cssText =
+        'position: absolute;' +
+        'top: 0; left: 0; right: 0; bottom: 0;' +
+        'background-color: rgba(0, 0, 0, .7);' +
+		'border:0;' +
+		'border-radius:0px;' +
+        'z-index: 100;';
+    document.body.appendChild(backdropDiv);
+
+    dialogDiv = document.createElement('div');
+    dialogDiv.id = 'customDialog';
+    dialogDiv.style.cssText =
+        'background-color: #fff;' +
+        'width: 400px;' +
+        'margin: 20px auto 0;' +
+		'border:0; border-radius:7px;' +
+        'padding: 10px;';
+    backdropDiv.appendChild(dialogDiv);
+
+    dialogDiv.onclick = function(event) {
+      event.stopPropagation();
+    };
+
+    CustomDialog.backdropDiv_ = backdropDiv;
+    CustomDialog.dialogDiv_ = dialogDiv;
+  }
+  backdropDiv.style.display = 'block';
+  dialogDiv.style.display = 'block';
+
+  dialogDiv.innerHTML =
+      '<header class="customDialogTitle"></header>' +
+      '<p class="customDialogMessage"></p>' +
+      (options.showInput ? '<div><input id="customDialogInput"></div>' : '') +
+      '<div class="customDialogButtons">' +
+      (options.showCancel ? '<button id="customDialogCancel">Cancel</button>': '') +
+      (options.showOkay ? '<button id="customDialogOkay">Ok</button>': '') +
+      '</div>';
+  dialogDiv.getElementsByClassName('customDialogTitle')[0]
+      .appendChild(document.createTextNode(title));
+  dialogDiv.getElementsByClassName('customDialogMessage')[0]
+      .appendChild(document.createTextNode(message));
+
+  var onOkay = function(event) {
+    CustomDialog.hide();
+    options.onOkay && options.onOkay();
+    event && event.stopPropagation();
+  };
+  var onCancel = function(event) {
+    CustomDialog.hide();
+    options.onCancel && options.onCancel();
+    event && event.stopPropagation();
+  };
+
+  var dialogInput = document.getElementById('customDialogInput');
+  CustomDialog.inputField = dialogInput;
+  if (dialogInput) {
+    dialogInput.focus();
+
+    dialogInput.onkeyup = function(event) {
+      if (event.keyCode == 13) {
+        // Process as OK when user hits enter.
+        onOkay();
+        return false;
+      } else if (event.keyCode == 27)  {
+        // Process as cancel when user hits esc.
+        onCancel();
+        return false;
+      }
+    };
+  } else {
+    var okay = document.getElementById('customDialogOkay');
+    okay && okay.focus();
+  }
+
+  if (options.showOkay) {
+    document.getElementById('customDialogOkay')
+        .addEventListener('click', onOkay);
+  }
+  if (options.showCancel) {
+    document.getElementById('customDialogCancel')
+        .addEventListener('click', onCancel);
+  }
+
+  backdropDiv.onclick = onCancel;
+};
+document.getElementById("editor").style.display = "block";
+</script>
+<script>
+var xml = Blockly.Xml.textToDom(document.getElementById('defaltGame').innerHTML);
+Blockly.Xml.domToWorkspace(xml, workspace);
+</script>
+<script src="dropdownmenu.js"></script>
+<script>
+</script>
+<script>document.getElementById("loading_app").innerHTML = null;</script>

@@ -1,0 +1,11 @@
+.blocklyTreeLabel {
+  color: white;
+}
+.blocklyToolboxContents {
+  padding: .30px;
+}
+.blocklyTreeRow {
+  margin-bottom: .5em;
+  border-radius: 8px;
+  height:25px;
+}

@@ -1,0 +1,481 @@
+Blockly.defineBlocksWithJsonArray([
+
+{
+  "type": "game_on_tick",
+  "message0": "When The Game's Frame Updates %1 %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "code"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 120,
+  "tooltip": "This Will Be Like A Forever Loop. When It Starts Then It Never Ends Until The User Closes It.",
+  "helpUrl": ""
+},
+{
+  "type": "game_on_resize",
+  "message0": "When The Game Screen Is Resized %1 %2",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "code"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 120,
+  "tooltip": "When The Game Gets Resized, Then This Will Be Ran.",
+  "helpUrl": ""
+},
+{
+  "type": "game_width",
+  "message0": "Width Of Game Screen",
+  "inputsInline": true,
+  "output": null,
+  "colour": 120,
+  "tooltip": "Gets The Width Of The Screen.",
+  "helpUrl": ""
+},
+{
+  "type": "game_height",
+  "message0": "Height Of Game Screen",
+  "inputsInline": true,
+  "output": "Number",
+  "colour": 120,
+  "tooltip": "Gets The Height Of The Screen",
+  "helpUrl": ""
+},
+{
+  "type": "game_wait",
+  "message0": "Wait For %1 Second(s) Then Do %2 %3",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "seconds",
+      "check": "Number"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "after wait"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "colour": 120,
+  "tooltip": "Wait's for that many seconds then runs the code below",
+  "helpUrl": ""
+},
+{
+  "type": "game_mouse_x",
+  "message0": "Get The Cursor X Position",
+  "inputsInline": true,
+  "output": "Number",
+  "colour": 120,
+  "tooltip": "Gets the cursor's X Position.",
+  "helpUrl": ""
+},
+{
+  "type": "game_on_mouse_move",
+  "message0": "When The Cursor Moves %1 %2 %3 %4",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "Cursor X",
+      "variable": "Cursor X"
+    },
+    {
+      "type": "field_variable",
+      "name": "Cursor Y",
+      "variable": "Cursor Y"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "statement"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 120,
+  "tooltip": "It Runs When The Cursor Moves Around The Game Screen.",
+  "helpUrl": ""
+},
+{
+  "type": "game_keydetector",
+  "message0": "Add Key Detector %1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "var",
+      "variable": "Key ID"
+    }
+  ],
+  "colour": 120,
+  "tooltip": "It Will Add Key Detection To Your Game, It Will Output A Number Trough The Variable.",
+  "helpUrl": ""
+},
+{
+  "type": "game_open_page",
+  "message0": "Open Page %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 120,
+  "tooltip": "Opens A Page (In A New Tab) With The URL.",
+  "helpUrl": ""
+},
+{
+  "type": "game_open_popup",
+  "message0": "Open Popup %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 120,
+  "tooltip": "Opens A Popup Window With The URL.",
+  "helpUrl": ""
+},
+{
+  "type": "game_resize_to",
+  "message0": "Resize To: %1 Width: %2 Height: %3",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "width"
+    },
+    {
+      "type": "input_value",
+      "name": "height"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 120,
+  "tooltip": "Resizes The Window. (Dangerous)",
+  "helpUrl": ""
+},
+{
+  "type": "game_move_to",
+  "message0": "Move To: %1 X: %2 Y: %3",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "x"
+    },
+    {
+      "type": "input_value",
+      "name": "y"
+    }
+  ],
+  "inputsInline": true,
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 120,
+  "tooltip": "Moves The Window. (Dangerous)",
+  "helpUrl": ""
+},
+{
+  "type": "game_key_pressed",
+  "message0": "Key %1 Pressed? On %2",
+  "args0": [
+    {
+      "type": "field_dropdown",
+      "name": "keycode",
+      "options": [
+        [
+          "Up",
+          "38"
+        ],
+        [
+          "Down",
+          "40"
+        ],
+        [
+          "Left",
+          "37"
+        ],
+        [
+          "Right",
+          "39"
+        ],
+		[
+		  "Space",
+		  "32"
+		],
+		[
+		  "Enter",
+		  "13"
+		],
+		[
+		  "Shift",
+		  "16"
+		],
+		[
+		  "a",
+		  "65"
+		],
+		[
+		  "b",
+		  "66"
+		],
+		[
+		  "c",
+		  "67"
+		],
+		[
+		  "d",
+		  "68"
+		],
+		[
+		  "e",
+		  "69"
+		],
+		[
+		  "f",
+		  "70"
+		],
+		[
+		  "g",
+		  "71"
+		],
+		[
+		  "h",
+		  "72"
+		],
+		[
+		  "i",
+		  "73"
+		],
+		[
+		  "j",
+		  "74"
+		],
+		[
+		  "k",
+		  "75"
+		],
+		[
+		  "l",
+		  "76"
+		],
+		[
+		  "m",
+		  "77"
+		],
+		[
+		  "n",
+		  "78"
+		],
+		[
+		  "o",
+		  "79"
+		],
+		[
+		  "p",
+		  "80"
+		],
+		[
+		  "q",
+		  "81"
+		],
+		[
+		  "r",
+		  "82"
+		],
+		[
+		  "s",
+		  "83"
+		],
+		[
+		  "t",
+		  "84"
+		],
+		[
+		  "u",
+		  "85"
+		],
+		[
+		  "v",
+		  "86"
+		],
+		[
+		  "w",
+		  "87"
+		]
+		[
+		  "x",
+		  "88"
+		],
+		[
+		  "y",
+		  "89"
+		],
+		[
+		  "z",
+		  "90"
+		],
+		[
+		  "1",
+		  "49"
+		],
+		[
+		  "2",
+		  "50"
+		],
+		[
+		  "3",
+		  "51"
+		],
+		[
+		  "4",
+		  "52"
+		],
+		[
+		  "5",
+		  "53"
+		],
+		[
+		  "6",
+		  "54"
+		],
+		[
+		  "7",
+		  "55"
+		],
+		[
+		  "8",
+		  "56"
+		],
+		[
+		  "9",
+		  "57"
+		],
+		[
+		  "0",
+		  "48"
+		]
+      ]
+    },
+    {
+      "type": "field_variable",
+      "name": "keyvar",
+      "variable": "Key ID"
+    }
+  ],
+  "output": [
+    "Boolean",
+    "Number"
+  ],
+  "colour": 120,
+  "tooltip": "Gets The Key Pressed On The Key Array. (Requres The Key Detector)",
+  "helpUrl": ""
+}
+
+]);
+
+Blockly.JavaScript['game_on_tick'] = function(block) {
+  var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'function ongametick() {\n' + statements_code + '\n setTimeout(function (){ ongametick() },15);\n};\n ongametick();\n';
+  return code;
+};
+Blockly.JavaScript['game_on_resize'] = function(block) {
+  var statements_code = Blockly.JavaScript.statementToCode(block, 'code');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.onresize = function () {\n ' + statements_code + ' \n};\n';
+  return code;
+};
+Blockly.JavaScript['game_width'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.outerWidth';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+Blockly.JavaScript['game_height'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.outerHeight';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+Blockly.JavaScript['game_wait'] = function(block) {
+  var value_seconds = Blockly.JavaScript.valueToCode(block, 'seconds', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements_after_wait = Blockly.JavaScript.statementToCode(block, 'after wait');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'setTimeout(() => {\n' + statements_after_wait + '\n}, ' + (value_seconds * 1000) + ');\n';
+  return code;
+};
+Blockly.JavaScript['game_on_mouse_move'] = function(block) {
+  var variable_cursor_x = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('Cursor X'), Blockly.Variables.NAME_TYPE);
+  var variable_cursor_y = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('Cursor Y'), Blockly.Variables.NAME_TYPE);
+  var statements_statement = Blockly.JavaScript.statementToCode(block, 'statement');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.onmousemove = function () {\n' + variable_cursor_x + ' = window.event.x;\n' + variable_cursor_y + ' = window.event.y;\n ' + statements_statement + '};\n';
+  return code;
+};
+Blockly.JavaScript['game_keydetector'] = function(block) {
+  var variable = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('var'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble JavaScript into code variable.
+  var code = variable + ' = [];\n function checkKey(e) {\n var event = window.event ? window.event : e;\n if (' + variable + '.indexOf(event.keyCode) + 1 == 0) {\n' + variable + '.unshift(event.keyCode);\n };\n};\n document.onkeydown = function (e) { checkKey(e); };\n document.onkeyup = function (e) {\nvar event = window.event ? window.event : e;\ndelete ' + variable + '[' + variable + '.indexOf(event.keyCode)];\n};\n';
+  return code;
+};
+Blockly.JavaScript['game_open_page'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.open(' + value_name + ');\n';
+  return code;
+};
+Blockly.JavaScript['game_open_popup'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.open(' + value_name + ',"","",200,200);\n';
+  return code;
+};
+Blockly.JavaScript['game_resize_to'] = function(block) {
+  var value_width = Blockly.JavaScript.valueToCode(block, 'width', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_height = Blockly.JavaScript.valueToCode(block, 'height', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.resizeTo(' + value_width + ',' + value_height + ');\n';
+  return code;
+};
+Blockly.JavaScript['game_move_to'] = function(block) {
+  var value_x = Blockly.JavaScript.valueToCode(block, 'x', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_y = Blockly.JavaScript.valueToCode(block, 'y', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'window.moveTo(' + value_x + ',' + value_y + ');\n';
+  return code;
+};
+Blockly.JavaScript['game_key_pressed'] = function(block) {
+  var dropdown_keycode = block.getFieldValue('keycode');
+  var variable_keyvar = Blockly.JavaScript.nameDB_.getName(block.getFieldValue('keyvar'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '!(' + variable_keyvar + '.indexOf(' + dropdown_keycode + ') + 1 == 0)';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
