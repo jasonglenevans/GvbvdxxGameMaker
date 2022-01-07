@@ -71,6 +71,55 @@ Blockly.defineBlocksWithJsonArray([
   "colour": 180,
   "tooltip": "Does nothing, but cleans up scripts. to understand them more",
   "helpUrl": ""
+},
+{
+  "type": "dataurl_setup",
+  "message0": "setup dataURL",
+  "colour": 0,
+  "tooltip": "Setup dataURLs.",
+  "helpUrl": "https://dopiaza.org/tools/datauri/index.php"
+},
+{
+  "type": "dataurl_add_file",
+  "message0": "Add data URL for file: %1 dataURL: %2 %3 ID: %4",
+  "args0": [
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_input",
+      "name": "url",
+      "text": "data:"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "field_input",
+      "name": "id",
+      "text": "myFile"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 0,
+  "tooltip": "Add a data URL to the game",
+  "helpUrl": "https://dopiaza.org/tools/datauri/index.php"
+},
+{
+  "type": "dataurl_get_file",
+  "message0": "Get Data URL %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "String"
+    }
+  ],
+  "output": null,
+  "colour": 0,
+  "tooltip": "Gets A Data URL",
+  "helpUrl": "https://dopiaza.org/tools/datauri/index.php"
 }
 
 ]);
@@ -95,4 +144,25 @@ Blockly.JavaScript['group'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
   var code = '//------------' + text_name + '------------\n' + statements_scripts + '\n//---------------------------------------\n';
   return code;
+};
+Blockly.JavaScript['dataurl_setup'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'let DATAURL = [];\n';
+  return code;
+};
+Blockly.JavaScript['dataurl_add_file'] = function(block) {
+  var text_url = block.getFieldValue('url');
+  var text_id = block.getFieldValue('id');
+  // TODO: Assemble JavaScript into code variable.
+  if (!(text_url.split("data:")[0] == "data:")) { block.setWarningText("Must Be A Data URL"); };
+  if (text_id == nul)) { block.setWarningText("ID Can Not Be Empty"); };
+  var code = 'DATAURL["' + text_id + '"];\nDATAURL["' + text_id + '"].data = ' + text_url + ';\n';
+  return code;
+};
+Blockly.JavaScript['dataurl_get_file'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'DATAURL[' + value_name + '].data';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
 };
