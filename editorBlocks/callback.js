@@ -154,8 +154,6 @@ Blockly.JavaScript['dataurl_add_file'] = function(block) {
   var text_url = block.getFieldValue('url');
   var text_id = block.getFieldValue('id');
   // TODO: Assemble JavaScript into code variable.
-  if (!(text_url.split("data:")[0] == "data:")) { block.setWarningText("Must Be A Data URL"); };
-  if (text_id == nul)) { block.setWarningText("ID Can Not Be Empty"); };
   var code = 'DATAURL["' + text_id + '"];\nDATAURL["' + text_id + '"].data = ' + text_url + ';\n';
   return code;
 };
