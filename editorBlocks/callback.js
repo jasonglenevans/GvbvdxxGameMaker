@@ -48,6 +48,29 @@ Blockly.defineBlocksWithJsonArray([
   "colour": 315,
   "tooltip": "Tries the first, if a error, then output it on a variable and do the scripts on the bottom.",
   "helpUrl": ""
+},
+{
+  "type": "group",
+  "message0": "------------ %1 ------------ %2 %3 ---------------------------------------",
+  "args0": [
+    {
+      "type": "field_input",
+      "name": "NAME",
+      "text": "Group 1"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_statement",
+      "name": "scripts"
+    }
+  ],
+  "previousStatement": null,
+  "nextStatement": null,
+  "colour": 180,
+  "tooltip": "Does nothing, but cleans up scripts. to understand them more",
+  "helpUrl": ""
 }
 
 ]);
@@ -64,5 +87,12 @@ Blockly.JavaScript['experimental_try_catch'] = function(block) {
   var statements_catch = Blockly.JavaScript.statementToCode(block, 'catch');
   // TODO: Assemble JavaScript into code variable.
   var code = 'try {\n' + statements_try + ' } catch(' + variable_err + ') {\n' + statements_catch + '\n};\n';
+  return code;
+};
+Blockly.JavaScript['group'] = function(block) {
+  var text_name = block.getFieldValue('NAME');
+  var statements_scripts = Blockly.JavaScript.statementToCode(block, 'scripts');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '//------------' + text_name + '------------\n' + statements_scripts + '\n//---------------------------------------;\n';
   return code;
 };
