@@ -154,7 +154,7 @@ Blockly.JavaScript['dataurl_add_file'] = function(block) {
   var text_url = block.getFieldValue('url');
   var text_id = block.getFieldValue('id');
   // TODO: Assemble JavaScript into code variable.
-  var code = 'DATAURL["' + text_id + '"];\nDATAURL["' + text_id + '"].data = ' + text_url + ';\n';
+  var code = 'DATAURL["' + text_id + '"];\nDATAURL["' + text_id + '"].data = "' + text_url + '";\n';
   return code;
 };
 Blockly.JavaScript['dataurl_get_file'] = function(block) {
