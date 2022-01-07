@@ -147,7 +147,7 @@ Blockly.JavaScript['group'] = function(block) {
 };
 Blockly.JavaScript['dataurl_setup'] = function(block) {
   // TODO: Assemble JavaScript into code variable.
-  var code = 'let DATAURL = [];\n';
+  var code = 'let DATAURL = null;\n';
   return code;
 };
 Blockly.JavaScript['dataurl_add_file'] = function(block) {
@@ -160,7 +160,7 @@ Blockly.JavaScript['dataurl_add_file'] = function(block) {
 Blockly.JavaScript['dataurl_get_file'] = function(block) {
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = 'DATAURL[' + value_name + '].data';
+  var code = 'DATAURL["' + value_name + '"].data';
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
